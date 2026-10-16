@@ -9,7 +9,7 @@ require "tmpdir"
 
 abort "Usage: ruby script/release.rb --check|--push" unless ARGV.length == 1 && %w[--check --push].include?(ARGV.first)
 Dir.chdir(File.expand_path("..", __dir__))
-spec = Gem::Specification.load("paloalto.gemspec")
+spec = Gem::Specification.load("paloalto-rb.gemspec")
 abort "Cannot load gemspec" unless spec
 artifact = "pkg/#{spec.full_name}.gem"
 package = Gem::Package.new(artifact)

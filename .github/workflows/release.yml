@@ -67,7 +67,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gem="paloalto-${GITHUB_REF_NAME#v}.gem"
+          gem="paloalto-rb-${GITHUB_REF_NAME#v}.gem"
           gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY"
           gh release upload "$GITHUB_REF_NAME" "pkg/$gem" pkg/SHA256SUMS --repo "$GITHUB_REPOSITORY" --clobber
           gh release download "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/release-readback" --pattern "$gem" --pattern SHA256SUMS

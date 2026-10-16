@@ -3,7 +3,7 @@
 require_relative "lib/paloalto/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "paloalto"
+  spec.name = "paloalto-rb"
   spec.version = Paloalto::VERSION
   spec.authors = ["gatework"]
   spec.summary = "Ruby library foundation for Palo Alto Networks device automation"

@@ -1,7 +1,7 @@
-# paloalto
+# paloalto-rb
 
 [![CI](https://github.com/gatework/paloalto/actions/workflows/ci.yml/badge.svg)](https://github.com/gatework/paloalto/actions/workflows/ci.yml)
-[![Gem Version](https://badge.fury.io/rb/paloalto.svg)](https://rubygems.org/gems/paloalto)
+[![Gem Version](https://badge.fury.io/rb/paloalto-rb.svg)](https://rubygems.org/gems/paloalto-rb)
 
 面向 Palo Alto Networks 设备自动化的 Ruby gem。目前为初始骨架，提供命名空间、版本常量与基础异常；设备连接、配置解析和命令操作尚未实现。
 
@@ -10,13 +10,13 @@
 要求 Ruby 3.3 或更高版本。
 
 ```sh
-gem install paloalto
+gem install paloalto-rb
 ```
 
 或在 Gemfile 中添加：
 
 ```ruby
-gem "paloalto", "~> 0.1.0"
+gem "paloalto-rb", "~> 0.1.1"
 ```
 
 ## 使用
@@ -24,7 +24,7 @@ gem "paloalto", "~> 0.1.0"
 ```ruby
 require "paloalto"
 
-Paloalto::VERSION # => "0.1.0"
+Paloalto::VERSION # => "0.1.1"
 Paloalto::Error   # StandardError 的子类
 ```
 
@@ -41,13 +41,13 @@ CI 覆盖 Ruby 3.3、3.4、4.0。打包步骤在临时 GEM_HOME 中安装并加�
 ## 发布
 
 1. 更新 `lib/paloalto/version.rb` 与 `CHANGELOG.md`，提交并推送到 `main`。
-2. 等待该提交的 CI 通过，创建并推送同版本标签，例如 `v0.1.1`。
+2. 等待该提交的 CI 通过，创建并推送同版本标签，例如 `v0.1.2`。
 3. 在 GitHub 发布该标签的 Release；`release.yml` 会重新运行完整 CI，下载通过验证的 gem，发布到 RubyGems，再将相同的 gem 与 `SHA256SUMS` 附加到 Release。
 
 ```sh
-git tag -a v0.1.1 -m "Release 0.1.1"
-git push origin v0.1.1
-gh release create v0.1.1 --verify-tag --title v0.1.1 --notes-file CHANGELOG.md
+git tag -a v0.1.2 -m "Release 0.1.2"
+git push origin v0.1.2
+gh release create v0.1.2 --verify-tag --title v0.1.2 --notes-file CHANGELOG.md
 ```
 
 发布使用 GitHub `release` environment 的 `RUBYGEMS_API_KEY` secret。API key 需要 `push_rubygem` 权限，并允许非交互式发布；不要提交凭据。也可配置 [RubyGems Trusted Publishing](https://guides.rubygems.org/trusted-publishing/)（owner `gatework`、repository `paloalto`、workflow `release.yml`、environment `release`），随后删除该 secret，工作流将使用 OIDC。

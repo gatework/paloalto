@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-10-16
+
+- RubyGems 包名采用 `paloalto-rb`，避免与已有的 `palo_alto` 名称冲突。
+- 保持 `require "paloalto"` 和 `Paloalto` 命名空间。
+
 ## 0.1.0 - 2026-10-16
 
 - 初始化 gem 命名空间、版本常量和基础异常。

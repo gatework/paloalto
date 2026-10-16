@@ -9,7 +9,7 @@ require "rubygems/package"
 require "tmpdir"
 
 Dir.chdir(File.expand_path("..", __dir__))
-spec = Gem::Specification.load("paloalto.gemspec")
+spec = Gem::Specification.load("paloalto-rb.gemspec")
 abort "Cannot load gemspec" unless spec
 FileUtils.mkdir_p("pkg")
 epoch, status = Open3.capture2("git", "log", "-1", "--format=%ct")
